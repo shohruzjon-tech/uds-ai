@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: uds-go-mongodb
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: uds-go
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - uds-go-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: uds-go-redis
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    networks:
+      - uds-go-network
+
+volumes:
+  mongodb_data:
+  redis_data:
+
+networks:
+  uds-go-network:
+    driver: bridge
