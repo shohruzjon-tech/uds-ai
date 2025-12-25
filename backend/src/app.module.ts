@@ -15,6 +15,7 @@ import { LocationsModule } from './modules/locations/locations.module';
 import { StatisticsModule } from './modules/statistics/statistics.module';
 import { ConfigurationModule } from './modules/config/configuration.module';
 import { AiModule } from './modules/ai/ai.module';
+import { MapsModule } from './modules/maps/maps.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { AiModule } from './modules/ai/ai.module';
     StatisticsModule,
     ConfigurationModule,
     AiModule,
+    MapsModule,
   ],
 })
 export class AppModule {}

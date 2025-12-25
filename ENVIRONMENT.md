@@ -44,9 +44,9 @@ PAYME_SECRET_KEY=your-payme-secret-key
 CLICK_MERCHANT_ID=your-click-merchant-id
 CLICK_SECRET_KEY=your-click-secret-key
 
-# Google Maps
-# Get API key from https://console.cloud.google.com
-GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+# Yandex Maps
+# Get API key from https://yandex.com/dev/maps
+YANDEX_MAPS_API_KEY=your-google-maps-api-key
 ```
 
 ## Client App Environment
@@ -64,13 +64,13 @@ Update `apps/client/app.json`:
   "expo": {
     "ios": {
       "config": {
-        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        "googleMapsApiKey": "YOUR_YANDEX_MAPS_API_KEY"
       }
     },
     "android": {
       "config": {
         "googleMaps": {
-          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+          "apiKey": "YOUR_YANDEX_MAPS_API_KEY"
         }
       }
     }
@@ -93,13 +93,13 @@ Update `apps/driver/app.json`:
   "expo": {
     "ios": {
       "config": {
-        "googleMapsApiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        "googleMapsApiKey": "YOUR_YANDEX_MAPS_API_KEY"
       }
     },
     "android": {
       "config": {
         "googleMaps": {
-          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+          "apiKey": "YOUR_YANDEX_MAPS_API_KEY"
         }
       }
     }

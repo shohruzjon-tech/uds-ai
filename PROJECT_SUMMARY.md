@@ -45,7 +45,7 @@ A feature-rich mobile app for customers:
 - RTK Query for API communication
 - Multi-language support (Uzbek, English, Russian)
 - Dark/Light theme support
-- Google Maps integration ready
+- Yandex Maps integration ready
 - Push notifications ready
 - Tab-based navigation
 - TypeScript throughout
@@ -203,7 +203,7 @@ Comprehensive documentation created:
 - Redux Toolkit
 - React Navigation 6
 - i18next
-- Google Maps
+- Yandex Maps
 
 **Admin:**
 - Next.js 14
@@ -292,7 +292,7 @@ Categories:
 ✅ Localization
 
 ### What Needs Configuration:
-🔧 API keys (Google Maps, OpenAI, Eskiz.uz)
+🔧 API keys (Yandex Maps, OpenAI, Eskiz.uz)
 🔧 Payment gateways (PAYME, CLICK)
 🔧 Database connection
 🔧 Redis connection

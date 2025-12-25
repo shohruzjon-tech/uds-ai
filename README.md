@@ -16,7 +16,7 @@ UDS GO is a comprehensive delivery and taxi system built with modern technologie
 - **Framework**: Expo (React Native)
 - **State Management**: Redux Toolkit (RTK Query)
 - **Navigation**: React Navigation
-- **Maps**: Google Maps
+- **Maps**: Yandex Maps
 - **Authentication**: Custom OTP with eskiz.uz SMS service
 - **Platform**: Android/iOS optimized
 
@@ -148,7 +148,7 @@ cp .env.example .env
 - Eskiz.uz SMS credentials
 - OpenAI API key
 - Payment gateway credentials
-- Google Maps API key
+- Yandex Maps API key
 
 5. Start MongoDB and Redis (using Docker):
 ```bash
@@ -235,7 +235,7 @@ The dashboard will be available at `http://localhost:3000`
 
 ## 📱 Mobile App Configuration
 
-### Google Maps Setup
+### Yandex Maps Setup
 
 1. Get API keys from [Google Cloud Console](https://console.cloud.google.com/)
 2. Update `app.json` in both client and driver apps with your API keys

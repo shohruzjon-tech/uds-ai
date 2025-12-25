@@ -550,3 +550,216 @@ GET /users?page=1&limit=20
   "totalPages": 5
 }
 ```
+
+---
+
+## Maps Endpoints (Yandex Maps)
+
+### Geocode Address
+Convert address to coordinates using Yandex Maps.
+
+**Endpoint:** `GET /maps/geocode`
+
+**Query Parameters:**
+- `address`: Address to geocode
+
+**Response:**
+```json
+{
+  "address": "Amir Temur Avenue, Tashkent, Uzbekistan",
+  "coordinates": {
+    "latitude": 41.2995,
+    "longitude": 69.2401
+  },
+  "city": "Tashkent",
+  "region": "Tashkent Region"
+}
+```
+
+### Reverse Geocode
+Convert coordinates to address using Yandex Maps.
+
+**Endpoint:** `GET /maps/reverse-geocode`
+
+**Query Parameters:**
+- `latitude`: Latitude coordinate
+- `longitude`: Longitude coordinate
+
+**Response:**
+```json
+{
+  "address": "Amir Temur Avenue, Tashkent, Uzbekistan",
+  "city": "Tashkent",
+  "region": "Tashkent Region",
+  "street": "Amir Temur Avenue"
+}
+```
+
+### Get Location Suggestions
+Get location suggestions with autocomplete using Yandex Maps.
+
+**Endpoint:** `GET /maps/suggest`
+
+**Query Parameters:**
+- `text`: Search text for suggestions
+- `ll` (optional): Center point as "longitude,latitude"
+- `spn` (optional): Search area span as "longitude_span,latitude_span"
+
+**Response:**
+```json
+[
+  {
+    "title": "Amir Temur Square",
+    "subtitle": "Tashkent, Uzbekistan",
+    "uri": "ymapsbm1://geo?ll=69.240,41.299&spn=0.01,0.01",
+    "distance": 1234
+  }
+]
+```
+
+### Calculate Route
+Calculate route between two points using Yandex Maps Router API.
+
+**Endpoint:** `GET /maps/route`
+
+**Query Parameters:**
+- `fromLat`: Starting latitude
+- `fromLng`: Starting longitude
+- `toLat`: Destination latitude
+- `toLng`: Destination longitude
+- `mode` (optional): Travel mode - `auto`, `pedestrian`, or `bicycle` (default: `auto`)
+
+**Response:**
+```json
+{
+  "distance": 5420,
+  "duration": 1260,
+  "geometry": [
+    {
+      "distance": 150,
+      "duration": 30,
+      "polyline": "..."
+    }
+  ]
+}
+```
+
+---
+
+## Regional and City Statistics
+
+### Get Regional Statistics
+Get aggregated statistics by region for both rides and deliveries.
+
+**Endpoint:** `GET /statistics/regional`
+
+**Response:**
+```json
+{
+  "rides": [
+    {
+      "region": "Tashkent Region",
+      "totalRides": 1234,
+      "completedRides": 1100,
+      "totalRevenue": 12500000
+    }
+  ],
+  "deliveries": [
+    {
+      "region": "Tashkent Region",
+      "totalDeliveries": 567,
+      "completedDeliveries": 520,
+      "totalRevenue": 8500000
+    }
+  ]
+}
+```
+
+### Get City Statistics
+Get aggregated statistics by city for both rides and deliveries.
+
+**Endpoint:** `GET /statistics/city`
+
+**Response:**
+```json
+{
+  "rides": [
+    {
+      "city": "Tashkent",
+      "region": "Tashkent Region",
+      "totalRides": 1000,
+      "completedRides": 900,
+      "totalRevenue": 10000000
+    }
+  ],
+  "deliveries": [
+    {
+      "city": "Tashkent",
+      "region": "Tashkent Region",
+      "totalDeliveries": 450,
+      "completedDeliveries": 420,
+      "totalRevenue": 7000000
+    }
+  ]
+}
+```
+
+### Get Region Statistics by Service
+Get detailed statistics for a specific region, broken down by service type.
+
+**Endpoint:** `GET /statistics/region/:region`
+
+**Example:** `GET /statistics/region/Tashkent%20Region`
+
+**Response:**
+```json
+{
+  "region": "Tashkent Region",
+  "rides": {
+    "total": 1234,
+    "completed": 1100,
+    "pending": 50,
+    "inProgress": 84,
+    "totalRevenue": 12500000
+  },
+  "deliveries": {
+    "total": 567,
+    "completed": 520,
+    "pending": 20,
+    "inProgress": 27,
+    "totalRevenue": 8500000
+  }
+}
+```
+
+### Get City Statistics by Service
+Get detailed statistics for a specific city, broken down by service type.
+
+**Endpoint:** `GET /statistics/city/:city`
+
+**Query Parameters:**
+- `region` (optional): Filter by region name
+
+**Example:** `GET /statistics/city/Tashkent?region=Tashkent%20Region`
+
+**Response:**
+```json
+{
+  "city": "Tashkent",
+  "region": "Tashkent Region",
+  "rides": {
+    "total": 1000,
+    "completed": 900,
+    "pending": 40,
+    "inProgress": 60,
+    "totalRevenue": 10000000
+  },
+  "deliveries": {
+    "total": 450,
+    "completed": 420,
+    "pending": 15,
+    "inProgress": 15,
+    "totalRevenue": 7000000
+  }
+}
+```
