@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Testing
+coverage/
+.nyc_output/
+
+# Expo
+.expo/
+.expo-shared/
+
+# React Native
+.expo-shared/
+
+# Backend specific
+backend/dist/
+backend/node_modules/
+
+# Mobile apps
+apps/client/node_modules/
+apps/client/.expo/
+apps/driver/node_modules/
+apps/driver/.expo/
+
+# Admin dashboard
+admin/.next/
+admin/node_modules/
+admin/out/
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Docker
+.dockerignore
+docker-compose.override.yml
